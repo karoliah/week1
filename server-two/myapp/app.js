@@ -2,13 +2,12 @@
 const express = require('express');
 const app = express();
 const port = 3000;
+app.set('view engine', 'pug');
 
-app.use(express.static('public'))
+app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.json({
-        message: 'Hello World!'
-    })
+    res.render('index');
 });
 
 app.get('/catinfo', (req, res) => {
@@ -21,5 +20,5 @@ app.get('/catinfo', (req, res) => {
 });
 
 app.listen(port, () => {
-     console.log(`Example app listening on port ${port}!`)
+     console.log(`Example app listening on port ${port}!`);
 });
